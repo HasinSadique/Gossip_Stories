@@ -11,19 +11,26 @@ import android.util.Log;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import java.util.Calendar;
 
-public class Registrartion_part2 extends AppCompatActivity {
+public class Registration_part2 extends AppCompatActivity {
 
     private DatePickerDialog.OnDateSetListener mDateSetListener;
     private EditText Birthday;
-
+    private EditText Email;
+    public static String email,birthday;
+    private TextView textViewError;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registrartion_part2);
+
         Birthday=findViewById(R.id.EditText_Birthday);
+        Email=findViewById(R.id.EditText_email);
+        textViewError=findViewById(R.id.TextView_RegistrationPart2_error);
+
     }
 
     public void ShowDatePicker(View view) {
@@ -33,7 +40,7 @@ public class Registrartion_part2 extends AppCompatActivity {
         int day = cal.get(Calendar.DAY_OF_MONTH);
 
         DatePickerDialog dialog = new DatePickerDialog(
-                Registrartion_part2.this,
+                Registration_part2.this,
                 android.R.style.Theme_Holo_Light_Dialog_MinWidth,
                 mDateSetListener,
                 year,month,day);
@@ -50,14 +57,19 @@ public class Registrartion_part2 extends AppCompatActivity {
                 Birthday.setText(date);
             }
 
-
         };
 
     }
 
     public void proceed(View view) {
-        Intent intent= new Intent(this, Registration_part3.class);
-        startActivity(intent);
 
+        email=Email.getText().toString();
+        birthday=Birthday.getText().toString();
+        if((email.isEmpty())||(birthday.isEmpty())){
+            textViewError.setText("Both email and date of birth are need to proceed, Please enter accordinly.");
+        }else{
+            Intent intent= new Intent(this, Registration_part3.class);
+            startActivity(intent);
+        }
     }
 }

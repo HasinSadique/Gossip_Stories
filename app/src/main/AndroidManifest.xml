@@ -11,7 +11,7 @@
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         <activity android:name=".Homepage"></activity>
         <activity android:name=".Registration_part3" />
-        <activity android:name=".Registrartion_part2" />
+        <activity android:name=".Registration_part2" />
         <activity android:name=".Registration" />
         <activity android:name=".Login" />
         <activity android:name=".MainActivity">
