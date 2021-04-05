@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Homepage"
+    android:orientation="vertical"
+    >
+    <RelativeLayout
+        android:id="@+id/LinearLayout2_Homepage"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="#03A9F4"
+        android:padding="10dp"
+        >
+        <ImageView
+            android:id="@+id/ImageView_profilePic"
+            android:layout_width="50dp"
+            android:layout_height="60dp"
+            android:src="@drawable/ic_baseline_person_24"
+            android:background="@drawable/roundedbackground"
+            />
+        <TextView
+            android:id="@+id/TextView_ProfileName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hasin"
+            android:layout_toRightOf="@id/ImageView_profilePic"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            />
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="30dp"
+            android:src="@drawable/ic_baseline_person_add_24"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            />
+
+
+    </RelativeLayout>
+
+    <!--
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/AppbarHomepage"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal"
+            >
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/Toolbar_Homepage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:title="Gossip Stories"
+                android:background="#03A9F4"
+                />
+
+          <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Gossip Stories"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:textSize="15dp"
+                android:textColor="@color/white"
+                android:paddingLeft="10dp"
+                />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="15dp"
+
+
+                />
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_baseline_search_24"
+                android:background="#0000ffff"
+                android:paddingRight="10dp"
+                />
+
+        </com.google.android.material.appbar.AppBarLayout>
+       -->
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/HomepageTabLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:tabGravity="fill"
+        app:tabMode="fixed"
+        app:tabIndicatorColor="#2196F3"
+        app:tabTextColor="@color/white"
+        android:background="#03A9F4"
+
+        />
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/ViewPager_homePage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+    </androidx.viewpager.widget.ViewPager>
+
+
+</LinearLayout>

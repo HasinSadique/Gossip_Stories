@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Registration_part3"
+    >
+    <RelativeLayout
+        android:id="@+id/Registrationpart3_RL2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:padding="20dp"
+        >
+        <TextView
+            android:id="@+id/TextView_setpass"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Set a Password"
+            android:textSize="25dp"
+            android:textColor="@color/black"
+            android:gravity="center"
+            />
+        <TextView
+            android:id="@+id/TextView_passDeails"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Your password should be at least 8 charaters"
+            android:layout_below="@id/TextView_setpass"
+            android:gravity="center"
+            android:layout_marginTop="10dp"
+
+            />
+        <TextView
+            android:id="@+id/TextView_Password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Password"
+            android:textSize="20dp"
+            android:textColor="@color/purple_500"
+            android:layout_below="@id/TextView_passDeails"
+            android:layout_marginTop="20dp"
+            />
+        <EditText
+            android:id="@+id/EditText_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/TextView_Password"
+            android:layout_marginTop="10dp"
+            />
+        <TextView
+            android:id="@+id/TextView_RetypePassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Re-type Password"
+            android:textSize="20dp"
+            android:textColor="@color/purple_500"
+            android:layout_below="@id/EditText_password"
+            android:layout_marginTop="20dp"
+            />
+        <EditText
+            android:id="@+id/EditText_RetypePassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/TextView_RetypePassword"
+            android:layout_marginTop="10dp"
+            />
+
+    </RelativeLayout>
+    <Button
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="Register"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="100dp"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        android:background="@drawable/roundedbutton_apptheme"
+        android:onClick="Register"
+        />
+</RelativeLayout>

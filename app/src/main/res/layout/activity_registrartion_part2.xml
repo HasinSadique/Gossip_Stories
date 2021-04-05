@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Registrartion_part2"
+    >
+
+    <RelativeLayout
+        android:id="@+id/part2_RL2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:padding="30dp"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Personal Details:"
+            android:textSize="25dp"
+            android:textColor="@color/black"
+
+            />
+        <EditText
+            android:id="@+id/EditText_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/TextView_whatsyouname"
+            android:background="@drawable/roundededittext"
+            android:layout_marginTop="75dp"
+            android:hint="  Email"
+
+
+            />
+
+        <EditText
+            android:id="@+id/EditText_Birthday"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_below="@id/EditText_email"
+            android:background="@drawable/roundededittext"
+            android:hint="  Birthday"
+            android:onClick="ShowDatePicker"
+            />
+    </RelativeLayout>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Proceed"
+        android:layout_below="@id/part2_RL2"
+        android:onClick="proceed"
+        />
+
+
+</RelativeLayout>

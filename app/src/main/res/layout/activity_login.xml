@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Login"
+    android:padding="15dp"
+
+    >
+
+
+    <ImageView
+        android:id="@+id/Logo"
+        android:layout_width="125dp"
+        android:layout_height="125dp"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/gossip_logo"
+        android:layout_marginTop="15dp"
+        />
+    <TextView
+        android:id="@+id/Txt_Logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Gossip Stories"
+        android:gravity="center"
+        android:layout_below="@id/Logo"
+        android:layout_centerHorizontal="true"
+        android:textSize="25dp"
+        android:textStyle="italic"
+        android:textColor="#0994D3"
+        />
+
+    <RelativeLayout
+        android:id="@+id/RL2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="20dp"
+        android:layout_centerInParent="true"
+        android:background="@drawable/roundedbackground"
+        >
+
+        <TextView
+            android:id="@+id/LogoTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Login"
+            android:textColor="@color/white"
+            android:layout_centerHorizontal="true"
+            android:textSize="20dp"
+            />
+
+        <EditText
+            android:id="@+id/EditText_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/LogoTxt"
+            android:drawableStart="@drawable/ic_person_black_24dp"
+            android:background="@drawable/roundededittext"
+            android:layout_marginTop="30dp"
+            android:hint="  Email"
+            />
+        <EditText
+            android:id="@+id/EditText_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_below="@id/EditText_email"
+            android:drawableStart="@drawable/ic_https_black_24dp"
+            android:background="@drawable/roundededittext"
+            android:hint="  Password"
+            />
+        <Button
+            android:id="@+id/Button_Login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/EditText_password"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="40dp"
+            android:text="Login"
+            android:background="@drawable/roundedbutton"
+
+            />
+
+    </RelativeLayout>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="Sign up"
+        android:layout_alignParentBottom="true"
+        android:onClick="Signup"
+        android:textColor="@color/white"
+        android:background="@drawable/roundedbutton_apptheme"
+        />
+
+</RelativeLayout>

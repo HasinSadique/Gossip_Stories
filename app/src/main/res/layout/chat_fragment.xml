@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_gravity="center"
+    android:padding="20dp"
+    android:background="#E6FFFFFF"
+    >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="Fragmet chats"
+        android:gravity="center"
+        />
+    <ListView
+        android:id="@+id/ListViewChats"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/EditTextSearch"
+        />
+
+    <EditText
+        android:id="@+id/EditTextSearch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/roundededittext"
+        android:layout_alignParentBottom="true"
+        android:hint="Search"
+        android:drawableStart="@drawable/ic_baseline_search_24"
+        />
+
+
+</RelativeLayout>
