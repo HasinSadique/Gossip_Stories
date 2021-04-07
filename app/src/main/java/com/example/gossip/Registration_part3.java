@@ -35,7 +35,10 @@ public class Registration_part3 extends AppCompatActivity {
         repass=Repassword.getText().toString();
 
         if(pass.equals(repass)){
+            //Authenticate
+
             //create user object
+            User user= new User(FullName,Birthday,Email);
             //insert into DB
         }
 
