@@ -87,9 +87,7 @@ public class Registration_part3 extends AppCompatActivity {
                             // ...
                         }
                     });
-            //create user object
-            User user= new User(FullName,Birthday,Email);
-            //insert into DB
+
         }
 
         Intent intent=new Intent(this, Homepage.class);
