@@ -28,6 +28,7 @@ public class Homepage extends AppCompatActivity {
 //For toolbar/appbar
         toolbar= findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
 //For Tablayout
         tabLayout = findViewById(R.id.HomepageTabLayout);
         //appBarLayout = findViewById(R.id.AppbarHomepage);
