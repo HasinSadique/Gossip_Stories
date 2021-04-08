@@ -27,7 +27,6 @@ public class Registration_part3 extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,19 +42,21 @@ public class Registration_part3 extends AppCompatActivity {
         Birthday=Registration_part2.birthday;
 
         mAuth = FirebaseAuth.getInstance();
+        Toast.makeText(this, "Email: "+ Email+" "+FullName, Toast.LENGTH_LONG).show();
 
 
     }
 
-    @Override
-    public void onStart() {
-        super.onStart();
-        // Check if user is signed in (non-null) and update UI accordingly.
-        FirebaseUser currentUser = mAuth.getCurrentUser();
-        //updateUI(currentUser);
-    }
+//    @Override
+//    public void onStart() {
+//        super.onStart();
+//        // Check if user is signed in (non-null) and update UI accordingly.
+//        FirebaseUser currentUser = mAuth.getCurrentUser();
+//        //updateUI(currentUser);
+//    }
 
     public void Register(View view) {
+
         pass=Password.getText().toString();
         repass=Repassword.getText().toString();
 
@@ -79,8 +80,8 @@ public class Registration_part3 extends AppCompatActivity {
                             } else {
                                 // If sign in fails, display a message to the user.
                                 Log.w("TAG", "createUserWithEmail:failure", task.getException());
-                                Toast.makeText(getApplicationContext(), "Authentication failed.",
-                                        Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getApplicationContext(), "Authentication failed."+task.getException(),
+                                        Toast.LENGTH_LONG).show();
                                 //updateUI(null);
                             }
 
@@ -89,14 +90,10 @@ public class Registration_part3 extends AppCompatActivity {
                     });
 
         }
-
-        Intent intent=new Intent(this, Homepage.class);
-        startActivity(intent);
-        this.finish();
     }
 
     private void storeInfo() {
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        FirebaseDatabase database = FirebaseDatabase.getInstance("https://gossip-32bb8-default-rtdb.firebaseio.com/");
         DatabaseReference myRef = database.getReference("Users");
         String key = myRef.push().getKey();
         User user = new User(FullName, Birthday, Email);

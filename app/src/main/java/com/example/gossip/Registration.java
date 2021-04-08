@@ -7,6 +7,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 public class Registration extends AppCompatActivity {
 
     TextView FirstName,LastName;
@@ -19,11 +22,11 @@ public class Registration extends AppCompatActivity {
         FirstName=findViewById(R.id.EditText_firstName);
         LastName=findViewById(R.id.EditText_LastName);
 
-        fullName = FirstName.getText().toString()+" "+LastName.getText().toString();
-
     }
 
+
     public void proceed(View view) {
+        fullName = FirstName.getText().toString()+" "+LastName.getText().toString();
         Intent intent = new Intent(this, Registration_part2.class);
         startActivity(intent);
     }
