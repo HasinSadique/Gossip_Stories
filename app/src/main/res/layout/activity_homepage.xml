@@ -8,40 +8,9 @@
     tools:context=".Homepage"
     android:orientation="vertical"
     >
-    <RelativeLayout
-        android:id="@+id/LinearLayout2_Homepage"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:background="#03A9F4"
-        android:padding="10dp"
-        >
-        <ImageView
-            android:id="@+id/ImageView_profilePic"
-            android:layout_width="50dp"
-            android:layout_height="60dp"
-            android:src="@drawable/ic_baseline_person_24"
-            android:background="@drawable/roundedbackground"
-            />
-        <TextView
-            android:id="@+id/TextView_ProfileName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Hasin"
-            android:layout_toRightOf="@id/ImageView_profilePic"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="10dp"
-            />
 
-        <ImageView
-            android:layout_width="40dp"
-            android:layout_height="30dp"
-            android:src="@drawable/ic_baseline_person_add_24"
-            android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"
-            />
-
-
-    </RelativeLayout>
+    <include
+        layout="@layout/toolbar_layout"/>
 
     <!--
         <com.google.android.material.appbar.AppBarLayout
@@ -88,7 +57,7 @@
                 />
 
         </com.google.android.material.appbar.AppBarLayout>
-       -->
+-->
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/HomepageTabLayout"
         android:layout_width="match_parent"

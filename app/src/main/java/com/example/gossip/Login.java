@@ -21,6 +21,7 @@ public class Login extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
     EditText username,pass;
+    private static FirebaseUser firebaseUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,8 +74,17 @@ public class Login extends AppCompatActivity {
                 });
     }
 
+    public static FirebaseUser getFirebaseUser() {
+        return firebaseUser;
+    }
+
+    public void setFirebaseUser(FirebaseUser firebaseUser) {
+        this.firebaseUser = firebaseUser;
+    }
+
     private void updateUI(FirebaseUser user) {
         Intent intent = new Intent(this, Homepage.class);
+        setFirebaseUser(user);
         intent.putExtra("user",user);
         startActivity(intent);
         finish();
