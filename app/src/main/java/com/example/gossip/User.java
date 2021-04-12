@@ -1,6 +1,7 @@
 package com.example.gossip;
 
 public class User {
+    public User(){}
 
     private String Fullname,DOB,Email;
 

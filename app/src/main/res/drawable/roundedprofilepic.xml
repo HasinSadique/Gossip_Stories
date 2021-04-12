@@ -8,7 +8,7 @@
         android:left="5dp"
         android:right="5dp"
         />
-    <solid android:color="#F40317"/>
+    <solid android:color="#03A9F4"/>
     <corners android:bottomRightRadius="50dp"
         android:bottomLeftRadius="50dp"
         android:topRightRadius="50dp"

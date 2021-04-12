@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FindFriends">
+
+    <RelativeLayout
+        android:id="@+id/RelativeLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="#03A9F4"
+        android:orientation="horizontal"
+        >
+        <TextView
+            android:id="@+id/TextView_FindFriendsTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Find friends"
+            android:textColor="@color/white"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textSize="20dp"
+
+            />
+        <ImageView
+            android:id="@+id/ImageView_AddFriends_BackButton"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_baseline_arrow_back_ios_24"
+            android:layout_marginLeft="10dp"
+            android:onClick="goback"
+            />
+
+    </RelativeLayout>
+
+    <EditText
+        android:id="@+id/EditText_SearchFriends"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/roundededittext"
+        android:hint="Search friends"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_below="@+id/RelativeLayout2"
+        android:drawableStart="@drawable/ic_baseline_search_24"
+        />
+
+    <ListView
+        android:id="@+id/ListViewUsers"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/EditText_SearchFriends"
+        android:layout_marginTop="10dp"
+        />
+
+
+</RelativeLayout>
