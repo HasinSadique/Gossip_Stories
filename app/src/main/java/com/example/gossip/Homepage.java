@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.tabs.TabLayout;
@@ -46,6 +47,7 @@ public class Homepage extends AppCompatActivity {
         tabLayout.setupWithViewPager(viewPager);
 //FirebaseUser
         firebaseUser=Login.getFirebaseUser();
+        Toast.makeText(getApplicationContext(), "Current User = "+firebaseUser.getEmail(), Toast.LENGTH_SHORT).show();
 
 
 

@@ -16,34 +16,34 @@
         android:dividerHeight="0.0px"
         android:clipToPadding="false"
         android:clipChildren="false"
-        app:cardBackgroundColor="#E1F3FB"
         >
         <RelativeLayout
+            android:id="@+id/Rl2_findfriend"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="10dp"
             >
             <ImageView
                 android:id="@+id/ImageView_CardViewProPic"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:src="@drawable/ic_person_black_24dp"
                 android:background="@drawable/roundedprofilepic"
                 />
             <TextView
                 android:id="@+id/TextView_NameShow"
-                android:textSize="20dp"
                 android:layout_marginLeft="10dp"
                 android:textColor="#000000"
                 android:text="Hasin Sadique"
+                android:textStyle="bold"
                 android:layout_toRightOf="@id/ImageView_CardViewProPic"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 />
             <Button
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
+                android:layout_width="60dp"
+                android:layout_height="30dp"
                 android:text="Add"
                 android:background="@drawable/roundedprofilepic"
                 android:layout_alignParentEnd="true"

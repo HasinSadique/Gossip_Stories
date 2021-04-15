@@ -31,7 +31,7 @@ public class CustomAdapterUserListForAdding extends ArrayAdapter<User> {
 
         TextView t1=view.findViewById(R.id.TextView_NameShow);
 
-        t1.setText("Name: "+user.getFullname());
+        t1.setText(user.getFullname());
 
         return view;
     }

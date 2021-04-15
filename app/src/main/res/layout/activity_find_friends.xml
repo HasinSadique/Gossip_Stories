@@ -41,7 +41,7 @@
     <EditText
         android:id="@+id/EditText_SearchFriends"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="31dp"
         android:background="@drawable/roundededittext"
         android:hint="Search friends"
         android:layout_marginTop="10dp"

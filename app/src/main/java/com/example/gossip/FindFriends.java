@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
@@ -31,7 +32,7 @@ public class FindFriends extends AppCompatActivity {
     DatabaseReference databaseReference;
     private List<User> userList;
     private CustomAdapterUserListForAdding customAdapterUserListForAdding;
-    private String currentUserEmail=Homepage.firebaseUser.getEmail();
+    private String currentUserEmail=Login.getFirebaseUser().getEmail();
 
     Button buttonAdd;
 
@@ -41,6 +42,8 @@ public class FindFriends extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_find_friends);
 
+        EditText_SearchFriends=findViewById(R.id.EditText_SearchFriends);
+        buttonAdd=findViewById(R.id.Button_addAsFriend);
 
         //for database connection
         databaseReference= FirebaseDatabase.getInstance("https://gossip-32bb8-default-rtdb.firebaseio.com/").getReference("Users");
@@ -50,7 +53,25 @@ public class FindFriends extends AppCompatActivity {
         userList=new ArrayList<>();
         customAdapterUserListForAdding=new CustomAdapterUserListForAdding(FindFriends.this,userList);
         listView=findViewById(R.id.ListViewUsers);
-        listView.setOnItemClickListener((adapterView, view, i, l) -> {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+       /*
+       listView.setOnItemClickListener((parent, view, position, id) -> {
             Toast.makeText(this, "Asi ami", Toast.LENGTH_SHORT).show();
 //                String tempListView=listViewItems[i].toString();
 //                 View v=customAdapter.getView(i,view,listView);
@@ -73,10 +94,7 @@ public class FindFriends extends AppCompatActivity {
             startActivity(intent);
         });
 
-        EditText_SearchFriends=findViewById(R.id.EditText_SearchFriends);
-        listView=findViewById(R.id.ListViewUsers);
-        buttonAdd=findViewById(R.id.Button_addAsFriend);
-
+        */
 
     }
 
@@ -94,7 +112,7 @@ public class FindFriends extends AppCompatActivity {
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                userList.clear();
+                //userList.clear();
                 for (DataSnapshot dataSnapshot1:  dataSnapshot.getChildren()){
                     User user=dataSnapshot1.getValue(User.class);
                     if(!user.getEmail().equals(currentUserEmail)){
