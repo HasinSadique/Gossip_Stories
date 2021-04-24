@@ -95,7 +95,7 @@ public class Registration_part3 extends AppCompatActivity {
     private void storeInfo() {
         FirebaseDatabase database = FirebaseDatabase.getInstance("https://gossip-32bb8-default-rtdb.firebaseio.com/");
         DatabaseReference myRef = database.getReference("Users");
-        String key = myRef.push().getKey();
+        String key = myRef.child("").getKey();
         User user = new User(FullName, Birthday, Email);
         myRef.child(key).setValue(user);
     }

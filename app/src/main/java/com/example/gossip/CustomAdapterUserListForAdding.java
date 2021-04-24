@@ -1,21 +1,21 @@
 package com.example.gossip;
 
-import android.app.Activity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.List;
 
 public class CustomAdapterUserListForAdding extends ArrayAdapter<User> {
 
-    private Activity context;
+    private AppCompatActivity context;
     private List<User> userList;
 
-    public CustomAdapterUserListForAdding(Activity context, List<User> userList) {
+    public CustomAdapterUserListForAdding(AppCompatActivity context, List<User> userList) {
         super(context, R.layout.sample_layout_user, userList);
         this.context = context;
         this.userList = userList;

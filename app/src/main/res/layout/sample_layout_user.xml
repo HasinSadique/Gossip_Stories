@@ -41,14 +41,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 />
-            <Button
-                android:layout_width="60dp"
-                android:layout_height="30dp"
-                android:text="Add"
-                android:background="@drawable/roundedprofilepic"
-                android:layout_alignParentEnd="true"
-                android:layout_centerVertical="true"
-                />
+
 
         </RelativeLayout>
 

@@ -16,7 +16,7 @@
         android:layout_width="125dp"
         android:layout_height="125dp"
         android:layout_centerHorizontal="true"
-        android:src="@drawable/gossip_logo"
+        app:srcCompat="@drawable/gossip_logo"
         android:layout_marginTop="15dp"
         />
     <TextView

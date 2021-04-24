@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -21,6 +22,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -43,8 +45,6 @@ public class FindFriends extends AppCompatActivity {
         setContentView(R.layout.activity_find_friends);
 
         EditText_SearchFriends=findViewById(R.id.EditText_SearchFriends);
-        buttonAdd=findViewById(R.id.Button_addAsFriend);
-
         //for database connection
         databaseReference= FirebaseDatabase.getInstance("https://gossip-32bb8-default-rtdb.firebaseio.com/").getReference("Users");
 
@@ -53,66 +53,39 @@ public class FindFriends extends AppCompatActivity {
         userList=new ArrayList<>();
         customAdapterUserListForAdding=new CustomAdapterUserListForAdding(FindFriends.this,userList);
         listView=findViewById(R.id.ListViewUsers);
+        Toast.makeText(FindFriends.this, "Heelllooo jee", Toast.LENGTH_SHORT).show();
+
+        listView.setOnItemClickListener((parent, view, position, id) -> {
+            int itempos=position;
+            openUser(itempos);
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-       /*
-       listView.setOnItemClickListener((parent, view, position, id) -> {
-            Toast.makeText(this, "Asi ami", Toast.LENGTH_SHORT).show();
-//                String tempListView=listViewItems[i].toString();
-//                 View v=customAdapter.getView(i,view,listView);
-//                 Intent intent=new Intent(ChildSpecialistUI.this,open_doctor.class);
-////
-//                 startActivity(intent);
-            int itempos=i;
             //Toast.makeText(ChildSpecialistUI.this, "clicked position: "+itempos, Toast.LENGTH_LONG).show();
-            User o= userList.get(itempos);
-            //Toast.makeText(ChildSpecialistUI.this, "O: "+o, Toast.LENGTH_LONG).show();
-            String name=o.getFullname();
-            String email=o.getEmail();
-            Toast.makeText(FindFriends.this, "Shob kichu nisi eibar pathabo", Toast.LENGTH_LONG).show();
-            Intent intent=new Intent(FindFriends.this, OpenUser.class);
-//                intent.putExtra("Name",name);
-//                intent.putExtra("Mobile",mobile);
-//                intent.putExtra("bmdc",bmdc);
-//                intent.putExtra("email",email);
-//                intent.putExtra("pass",pass);
-            startActivity(intent);
-        });
-
-        */
+            });
 
     }
 
-    private void checkFriends() {
+    private void openUser(int itempos) {
+        User o= userList.get(itempos);
+        String name=o.getFullname();
+        String email=o.getEmail();
+        Toast.makeText(FindFriends.this, "Shob kichu nisi eibar pathabo", Toast.LENGTH_LONG).show();
+        Intent intent=new Intent(FindFriends.this, OpenUser.class);
+        intent.putExtra("UserName",name);
+        intent.putExtra("UserEmail",email);
+        startActivity(intent);
+
+
+
     }
 
-    private void getUsers() {
-
-        //Image = (ImageView)findViewById(R.id.imageLogo);
-
-    }
 
     @Override
     protected void onStart() {
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                //userList.clear();
+                userList.clear();
                 for (DataSnapshot dataSnapshot1:  dataSnapshot.getChildren()){
                     User user=dataSnapshot1.getValue(User.class);
                     if(!user.getEmail().equals(currentUserEmail)){
