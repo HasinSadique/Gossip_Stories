@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".OpenUser"></activity>
+        <activity android:name=".MyProfile"></activity>
+        <activity android:name=".OpenUser" />
         <activity android:name=".FindFriends" />
         <activity android:name=".Homepage" />
         <activity android:name=".Registration_part3" />

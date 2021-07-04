@@ -5,24 +5,25 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.viewpager.widget.ViewPager;
 
-import android.content.Context;
+import android.accounts.Account;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
-import com.google.android.material.appbar.AppBarLayout;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.tabs.TabLayout;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class Homepage extends AppCompatActivity {
 
@@ -31,34 +32,11 @@ public class Homepage extends AppCompatActivity {
     //private AppBarLayout appBarLayout;
     private ViewPager viewPager;
     public static FirebaseUser firebaseUser;
-    DatabaseReference myref;
     public static String UserKey;
+    private String userID;
+    private String fullname,email,birthday;
 
-
-    private void getCurrentUserKey() {
-        String email = firebaseUser.getEmail();
-        final String[] Key = new String[1];
-
-        myref=FirebaseDatabase.getInstance("https://gossip-32bb8-default-rtdb.firebaseio.com/").getReference("Users");
-        myref.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for (DataSnapshot dataSnapshot1:  dataSnapshot.getChildren()){
-                    User user=dataSnapshot1.getValue(User.class);
-                    if(user.getEmail().equals(email)){
-                        UserKey =dataSnapshot1.getKey();
-                         Log.d("Key","Eita ki? : "+dataSnapshot1.getKey());
-                         break;
-                    }
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
-    }
+    CircleImageView ProPic;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,11 +60,35 @@ public class Homepage extends AppCompatActivity {
         tabLayout.setupWithViewPager(viewPager);
 //FirebaseUser
         firebaseUser = Login.getFirebaseUser();
-        //Toast.makeText(getApplicationContext(), "Current User = "+firebaseUser.getEmail(), Toast.LENGTH_SHORT).show();
+        userID = firebaseUser.getUid();
 //GetUserkey
-        getCurrentUserKey();
-        Toast.makeText(this, "MyKey: "+UserKey, Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "MyKey: " + userID, Toast.LENGTH_LONG).show();
+        getDetails(userID);
 
+
+    }
+
+    private void getDetails(String userID) {
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        Task<DocumentSnapshot> documentSnapshotTask = db.collection("users")
+                .document(userID).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                        if (task.isSuccessful()) {
+                            DocumentSnapshot document = task.getResult();
+                            if (document.exists()) {
+                                fullname= (String) document.get("Full Name");
+                                email= (String) document.get("Email");
+                                birthday= (String) document.get("Dob");
+                                Toast.makeText(Homepage.this, "Data:\nFullname: "+fullname+"\nEmail: "+email+"\nBirthday: "+birthday, Toast.LENGTH_SHORT).show();
+                            } else {
+                                Log.d("TAG", "No such document");
+                            }
+                        } else {
+                            Log.d("TAG", "get failed with ", task.getException());
+                        }
+                    }
+                });
     }
 
     @Override
@@ -100,5 +102,11 @@ public class Homepage extends AppCompatActivity {
         Intent intent = new Intent(this, FindFriends.class);
         startActivity(intent);
 
+    }
+
+    public void PRO(View view) {
+        //Account Page
+        Intent intent= new Intent(this, MyProfile.class);
+        Toast.makeText(this, "ProPic Clicked", Toast.LENGTH_SHORT).show();
     }
 }

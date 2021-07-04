@@ -12,12 +12,19 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class Registration_part3 extends AppCompatActivity {
 
@@ -71,7 +78,7 @@ public class Registration_part3 extends AppCompatActivity {
                                 Log.d("TAG", "createUserWithEmail:success");
                                 FirebaseUser user = mAuth.getCurrentUser();
                                 //Insert into DB
-                                storeInfo();
+                                storeInfo(user.getUid());
                                 //go to Login UI
                                 Intent intent = new Intent(getApplicationContext(), Login.class);
                                 startActivity(intent);
@@ -92,11 +99,16 @@ public class Registration_part3 extends AppCompatActivity {
         }
     }
 
-    private void storeInfo() {
-        FirebaseDatabase database = FirebaseDatabase.getInstance("https://gossip-32bb8-default-rtdb.firebaseio.com/");
-        DatabaseReference myRef = database.getReference("Users");
-        String key = myRef.child("").getKey();
-        User user = new User(FullName, Birthday, Email);
-        myRef.child(key).setValue(user);
+    private void storeInfo(String ID) {
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        // Create a new user with a first and last name
+        Map<String, Object> user = new HashMap<>();
+        user.put("Dob", Birthday);
+        user.put("Email", Email);
+        user.put("Full Name", FullName);
+
+// Add a new document with a generated ID
+        db.collection("users")
+                .document(ID).set(user);
     }
 }

@@ -22,6 +22,7 @@ public class Login extends AppCompatActivity {
     private FirebaseAuth mAuth;
     EditText username,pass;
     private static FirebaseUser firebaseUser;
+    private String userID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,6 +81,7 @@ public class Login extends AppCompatActivity {
 
     public void setFirebaseUser(FirebaseUser firebaseUser) {
         this.firebaseUser = firebaseUser;
+        userID=firebaseUser.getUid();
     }
 
     private void updateUI(FirebaseUser user) {
