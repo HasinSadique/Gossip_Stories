@@ -34,9 +34,23 @@ public class Homepage extends AppCompatActivity {
     public static FirebaseUser firebaseUser;
     public static String UserKey;
     private String userID;
-    private String fullname,email,birthday;
+    private static String fullname, email, birthday;
 
-    CircleImageView ProPic;
+    public String getUserID() {
+        return userID;
+    }
+
+    public static String getFullname() {
+        return fullname;
+    }
+
+    public static String getEmail() {
+        return email;
+    }
+
+    public static String getBirthday() {
+        return birthday;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,25 +84,25 @@ public class Homepage extends AppCompatActivity {
 
     private void getDetails(String userID) {
         FirebaseFirestore db = FirebaseFirestore.getInstance();
-        Task<DocumentSnapshot> documentSnapshotTask = db.collection("users")
+        db.collection("users")
                 .document(userID).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                        if (task.isSuccessful()) {
-                            DocumentSnapshot document = task.getResult();
-                            if (document.exists()) {
-                                fullname= (String) document.get("Full Name");
-                                email= (String) document.get("Email");
-                                birthday= (String) document.get("Dob");
-                                Toast.makeText(Homepage.this, "Data:\nFullname: "+fullname+"\nEmail: "+email+"\nBirthday: "+birthday, Toast.LENGTH_SHORT).show();
-                            } else {
-                                Log.d("TAG", "No such document");
-                            }
-                        } else {
-                            Log.d("TAG", "get failed with ", task.getException());
-                        }
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                if (task.isSuccessful()) {
+                    DocumentSnapshot document = task.getResult();
+                    if (document.exists()) {
+                        fullname = (String) document.get("Full Name");
+                        email = (String) document.get("Email");
+                        birthday = (String) document.get("Dob");
+                        Toast.makeText(Homepage.this, "Data:\nFullname: " + fullname + "\nEmail: " + email + "\nBirthday: " + birthday, Toast.LENGTH_SHORT).show();
+                    } else {
+                        Log.d("TAG", "No such document");
                     }
-                });
+                } else {
+                    Log.d("TAG", "get failed with ", task.getException());
+                }
+            }
+        });
     }
 
     @Override
@@ -106,7 +120,7 @@ public class Homepage extends AppCompatActivity {
 
     public void PRO(View view) {
         //Account Page
-        Intent intent= new Intent(this, MyProfile.class);
-        Toast.makeText(this, "ProPic Clicked", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(this, MyProfile.class);
+        startActivity(intent);
     }
 }
