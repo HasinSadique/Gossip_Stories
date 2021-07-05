@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FriendRequests_Page">
+    <RelativeLayout
+        android:id="@+id/Toolbar_RequestPage"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="#03A9F4"
+        >
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_baseline_arrow_back"
+            android:background="@drawable/roundedbutton"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:onClick="goback"
+            />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/RequestPage_RLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingTop="20dp"
+        android:layout_below="@id/Toolbar_RequestPage"
+        >
+        <TextView
+            android:id="@+id/TextView_Reuests"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Requests"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            />
+        <View
+            android:id="@+id/View_RequestPage_Divider"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#3C3939"
+            android:layout_marginTop="10dp"
+            android:layout_below="@id/TextView_Reuests"
+            />
+
+        <ListView
+            android:id="@+id/ListView_FriendRequestListView"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_below="@id/View_RequestPage_Divider"
+            android:layout_marginTop="20dp"
+            />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/RequestPage_RLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="20dp"
+        android:layout_below="@id/RequestPage_RLayout1"
+
+        >
+        <TextView
+            android:id="@+id/TextView_Suggestions"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Friend Suggestions"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            />
+        <View
+            android:id="@+id/View_RequestPage_Divider2"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#3C3939"
+            android:layout_marginTop="10dp"
+            android:layout_below="@id/TextView_Suggestions"
+            />
+
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_below="@id/View_RequestPage_Divider2"
+            android:layout_marginTop="20dp"
+            />
+
+    </RelativeLayout>
+
+</RelativeLayout>

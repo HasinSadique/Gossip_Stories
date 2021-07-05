@@ -6,36 +6,42 @@
     android:layout_height="match_parent"
     tools:context=".MyProfile">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar_myProfile"
+    <ImageView
+        android:id="@+id/ImageView_MyProfile_CoverPic"
         android:layout_width="match_parent"
+        android:layout_height="230dp"
+        android:layout_marginBottom="0dp"
+        android:background="@drawable/bottomrounded_background"
+        />
+    <ImageView
+        android:id="@+id/ImageView_BackButton"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:background="#03A9F4"
-        >
-        <ImageView
-            android:id="@+id/ImageView_BackButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_baseline_arrow_back_ios_24"
-            android:onClick="goback"
-            />
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:onClick="goback"
+        android:background="@drawable/roundedbutton"
+        android:src="@drawable/ic_baseline_arrow_back"
+        />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Profile"
-            android:textSize="20dp"
-            android:textStyle="bold"
-            android:textColor="@color/white"
-            />
-    </androidx.appcompat.widget.Toolbar>
+    <ImageView
+        android:id="@+id/ImageView_MyProfile_CoverPicEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_baseline_edit_24"
+        android:layout_alignBottom="@id/ImageView_MyProfile_CoverPic"
+        android:layout_marginBottom="10dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/roundedbutton"
+        />
+
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/ImageView_MyProfile_Pic"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="90dp"
         android:layout_below="@+id/toolbar_myProfile"
         android:layout_centerHorizontal="true"
         android:src="@drawable/profile_pic"
@@ -75,7 +81,7 @@
         android:layout_below="@id/TextView_MyProfile_Name"
         android:layout_alignLeft="@id/TextView_MyProfile_Name"
         android:layout_alignRight="@id/TextView_MyProfile_Name"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
         android:drawableStart="@drawable/ic_baseline_info_24"
         android:drawableEnd="@drawable/ic_baseline_edit_24"
         />
@@ -88,7 +94,7 @@
         android:layout_below="@id/TextView_MyProfile_BIO"
         android:layout_alignLeft="@id/TextView_MyProfile_BIO"
         android:layout_alignRight="@id/TextView_MyProfile_BIO"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
         android:drawableStart="@drawable/ic_baseline_email_24"
         android:drawableEnd="@drawable/ic_baseline_edit_24"
         />
@@ -102,7 +108,7 @@
         android:layout_below="@id/TextView_MyProfile_Email"
         android:layout_alignLeft="@id/TextView_MyProfile_Email"
         android:layout_alignRight="@id/TextView_MyProfile_Email"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
         android:drawableStart="@drawable/ic_baseline_call_24"
         android:drawableEnd="@drawable/ic_baseline_edit_24"
         android:longClickable="true"

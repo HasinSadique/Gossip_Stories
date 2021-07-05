@@ -3,7 +3,15 @@ package com.example.gossip;
 public class User {
     public User(){}
 
-    private String Fullname,DOB,Email;
+    private String UID,Fullname,DOB,Email;
+
+    public String getUID() {
+        return UID;
+    }
+
+    public void setUID(String UID) {
+        this.UID = UID;
+    }
 
     public String getFullname() {
         return Fullname;
@@ -29,7 +37,8 @@ public class User {
         Email = email;
     }
 
-    public User(String fullname, String DOB, String email) {
+    public User(String uid,String fullname, String DOB, String email) {
+        UID=uid;
         Fullname = fullname;
         this.DOB = DOB;
         Email = email;

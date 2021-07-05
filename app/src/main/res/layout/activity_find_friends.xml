@@ -27,6 +27,17 @@
 
             />
         <ImageView
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:src="@drawable/ic_baseline_people_24"
+            android:layout_alignParentEnd="true"
+            android:layout_marginRight="15dp"
+            android:layout_centerVertical="true"
+            android:onClick="OpenFriendRequests"
+            />
+
+
+        <ImageView
             android:id="@+id/ImageView_AddFriends_BackButton"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"

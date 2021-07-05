@@ -1,4 +1,4 @@
-package com.example.gossip;
+ package com.example.gossip;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -34,9 +34,6 @@ public class FindFriends extends AppCompatActivity {
 
     CollectionReference db;
 
-    Button buttonAdd;
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,11 +58,11 @@ public class FindFriends extends AppCompatActivity {
     private void openUser(int itempos) {
         User o = userList.get(itempos);
         String name = o.getFullname();
-        String email = o.getEmail();
+        String UID = o.getUID();
 //        Toast.makeText(FindFriends.this, "Shob kichu nisi eibar pathabo", Toast.LENGTH_LONG).show();
         Intent intent = new Intent(FindFriends.this, OpenUser.class);
         intent.putExtra("UserName", name);
-        intent.putExtra("UserEmail", email);
+        intent.putExtra("UID", UID);
         startActivity(intent);
     }
 
@@ -75,13 +72,13 @@ public class FindFriends extends AppCompatActivity {
         db.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                listView.setAdapter(customAdapterUserListForAdding);
+                //listView.setAdapter(customAdapterUserListForAdding);
                 for (QueryDocumentSnapshot document : task.getResult()) {
                     if (!document.getId().equals(currentUID)) {
                         String FN = (String) document.get("Full Name");
-                        String Email = (String) document.get("Full Name");
-                        String DoB = (String) document.get("Full Name");
-                        User user = new User(FN, Email, DoB);
+                        String Email = (String) document.get("Email");
+                        String DoB = (String) document.get("Dob");
+                        User user = new User(document.getId(),FN, Email, DoB);
                         userList.add(user);
                     }
                 }
@@ -94,5 +91,10 @@ public class FindFriends extends AppCompatActivity {
 
     public void goback(View view) {
         finish();
+    }
+
+    public void OpenFriendRequests(View view) {
+        Intent intent=new Intent(this,FriendRequests_Page.class);
+        startActivity(intent);
     }
 }

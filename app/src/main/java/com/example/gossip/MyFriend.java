@@ -1,22 +1,22 @@
 package com.example.gossip;
 
 public class MyFriend {
-    private String currentUser,tobeFriend;
+    private String currentUserUID,tobeFriendUID;
 
     public String getCurrentUser() {
-        return currentUser;
+        return currentUserUID;
     }
 
     public void setCurrentUser(String currentUser) {
-        this.currentUser = currentUser;
+        this.currentUserUID = currentUser;
     }
 
     public String getTobeFriend() {
-        return tobeFriend;
+        return tobeFriendUID;
     }
 
     public void setTobeFriend(String tobeFriend) {
-        this.tobeFriend = tobeFriend;
+        this.tobeFriendUID = tobeFriend;
     }
 
     public MyFriend(String currentUserEmail, String toBeFriendEmail) {
